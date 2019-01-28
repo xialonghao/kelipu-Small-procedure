@@ -1,0 +1,93 @@
+/* pages/integral/integral.wxss */
+@import "../public/gobal.wxss";
+
+.integral-piece1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 46rpx 0;
+  border-top: 15rpx solid #f4f4f4;
+  border-bottom: 15rpx solid #f4f4f4;
+}
+
+.integral-piece1 view {
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.integral-piece1 .left text {
+  border-right: 1rpx solid #efefef;
+}
+
+.integral-piece1 view text {
+  display: block;
+}
+
+.integral-piece1 view .one {
+  font-size: 48rpx;
+  color: #ecd49a;
+  font-weight: bold;
+  line-height: 56rpx;
+  padding: 0 10rpx;
+}
+
+.integral-piece1 view .two {
+  font-size: 24rpx;
+  color: #252525;
+  line-height: 24rpx;
+  padding-top: 14rpx;
+}
+
+.integral-piece2 .title {
+  width: 690rpx;
+  margin: 32rpx auto;
+  font-size: 28rpx;
+  color: #252525;
+  line-height: 28rpx;
+  border-left: 6rpx solid #d70029;
+  padding-left: 15rpx;
+}
+
+.integral-piece2 .content {
+  padding: 0 30rpx;
+  border-top: 1rpx solid #efefef;
+}
+
+.integral-piece2 .content text {
+  display: block;
+}
+
+.integral-piece2 .content .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.integral-piece2 .content .list .left .one,
+.integral-piece2 .content .list .right {
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #252525;
+}
+.integral-piece2 .content .list .rightwi{
+  width: 150rpx;
+}
+.integral-piece2 .content .list .rightwi .right{
+  float: right;
+  text-align: justify;
+}
+.integral-piece2 .content .list .left .one{
+  max-width: 550rpx;
+}
+.integral-piece2 .content .list .left .two {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666;
+  margin-top: 18rpx;
+}
+
+page {
+  padding-bottom: 210rpx;
+}

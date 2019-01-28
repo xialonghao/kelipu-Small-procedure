@@ -1,0 +1,140 @@
+<!--pages/shopdetails/shopdetails.wxml-->
+
+<import src="../../wxParse-master/wxParse/wxParse.wxml"/>
+<view class='goods-details-piece1' bindtap='global_view'>
+<!-- 如果有商品轮播图则优先显示多图 -->
+  <block wx:if="{{imgUrls != ''}}">
+    <view class="swiper">
+      <swiper indicator-dots="true" autoplay="{{autoplay}}"   current="{{currentSwiper}}"
+        interval="4500" duration="500" indicator-color="rgba(0, 0, 0, 0.1)" indicator-active-color="#252525">
+        <block wx:for="{{imgUrls}}" wx:key="key">
+          <view wx:if="{{item[0].path != null}}">
+          <swiper-item>
+            <image src="https://giftcardapp.colipu.com/upload/picture/{{item[0].path}}" mode='aspectFit'></image>
+          </swiper-item>
+          </view>
+        </block>
+      </swiper>     
+    </view>
+  </block>
+  
+  <!-- 如果没有商品轮播图则展示一张商品图 -->
+  <block wx:else>
+    <view class="swiper">
+     <!-- autoplay="{{autoplay}}" current="{{currentSwiper}}" bindchange="swiperChange" -->
+      <swiper>
+        <block>
+          <swiper-item>
+            <image src="{{goods_details.goods_img}}" mode='aspectFit'></image>
+          </swiper-item>
+        </block>
+      </swiper>     
+      <!-- <view class="dots">
+        <block wx:for="{{imgUrls}}" wx:key="key">
+          <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+        </block>
+      </view> -->
+    </view>
+  </block>
+
+  <!-- 登录后显示的商品列表(显示具体积分) -->
+  <!-- <block wx:if="{{cardid}}"> -->
+    <view class="goods-details-piece1-box2"  bindtap="">
+      <text class="title">{{goods_details.goods_name}}</text>
+      
+      <block wx:if="{{show_price === 0}}">  <!-- 正常显示的 -->
+        <view class="price">
+          <text class="one">{{goods_details.goods_price}}</text>
+          <text class="two">积分/{{goods_details.goods_unit}}</text>
+        </view>
+      </block>
+      <block wx:if="{{show_price === 1}}">  <!-- 套餐显示的 -->
+        <view class="price">
+          <text class="one">1</text>
+          <text class="two">{{goods_details.goods_unit}}</text>
+        </view>
+      </block>
+      <block wx:if="{{show_price === 2}}">  <!-- 中型显示的 -->
+        <view class="price">
+          <text class="one">{{goods_details.goods_price}}</text>
+          <text class="two">积分/{{goods_details.goods_unit}}</text>
+        </view>
+      </block>
+      <block wx:if="{{show_price === ''}}">  <!-- 登录前显示的 -->
+        <view class="price">
+          <text class="one">{{goods_details.goods_price}}</text>
+          <text class="two">积分/{{goods_details.goods_unit}}</text>
+        </view>
+      </block>
+
+    </view>
+  <!-- </block> -->
+
+  <!-- 登录前显示的商品列表(显示具体积分) -->
+  <!-- <block wx:else="{{cardid}}">
+    <view class="goods-details-piece1-box2">
+      <text class="title">{{goods_details.goods_name}}</text>
+      <view class="price">
+        <text class="one">***</text>
+        <text class="two">积分/{{goods_details.goods_unit}}</text>        
+      </view>
+    </view>
+  </block> -->
+
+</view>
+<view class="goods-details-piece2" bindtap=''>     
+  <view class="one">
+    <text>商品编号：</text>
+    <text>{{goods_details.goods_clp}}</text>
+  </view>
+
+  <!-- 商品有货时只显示"有货", 不显示具体数量 -->
+  <block wx:if="{{goods_details.goods_repertory > 0}}">
+    <view class="two">
+      <text>商品库存：</text>
+      <text>有货</text>        
+    </view>
+  </block>
+
+  <!-- 商品无货时显示"补货中" -->
+  <block wx:else>
+    <view class="two">
+      <text>商品库存：</text>
+      <text>补货中</text>        
+    </view>
+  </block>
+
+</view>
+<view class="goods-details-piece3" bindtap=''>
+  <view class="title">商品详情</view>
+  <view class="content">
+    <!-- <image src="http://www.zhxb.com/wechat/kelipu/img2.jpg"></image>
+    <image src="http://www.zhxb.com/wechat/kelipu/img3.jpg"></image>
+    <image src="http://www.zhxb.com/wechat/kelipu/img4.jpg"></image> -->
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    <!-- <template is="wxParse" data="{{wxParseData:goods_details.goods_content.nodes}}"/> -->
+  </view>
+</view>
+<view class="goods-details-piece4"bindtap=''>
+  <view class="one">
+    <navigator url='../index/index' open-type="switchTab" hover-class='none' bindtap='global_view'>
+      <image src="http://www.zhxb.com/wechat/kelipu/img2.png"></image>
+      <text>首页</text>
+    </navigator>
+    <navigator url='../shop/shop' open-type="switchTab" hover-class='none' bindtap='global_view'>
+      <text class='shop_num' wx:if="{{quantity!=''}}" hidden='hidden'>{{quantity}}</text>
+         <text class='shop_num' wx:if="{{quantity>99}}" hidden='hidden'>99</text>
+      <image src="http://www.zhxb.com/wechat/kelipu/img3.png"></image>
+      <text>购物车</text>
+    </navigator>
+  </view>
+  <view class="two">
+    <!-- <text class="one-btn">加入购物车</text>
+    <text class="two-btn">立即购买</text> -->
+    <button bindtap='submits'type='submit' class="add_adres-save add_adres">加入购物车</button>
+    <button  bindtap ='purchase'  class="two-btn" hover-class='none'>立即购买</button> 
+  <!--   <navigator url="../shop/shop?goods_id={{goods_details.goods_id}}" hover-class='none' class="one-btn" open-type = "switchTab">加入购物车</navigator>
+    <navigator url='../shop?goods_id={{goods_details.goods_id}}' class="two-btn" hover-class='none'>立即购买</navigator>  -->
+  </view>
+</view>
+

@@ -1,0 +1,244 @@
+/* pages/card/card.wxss */
+@import "../public/gobal.wxss";
+button {
+  padding: 0;
+}
+
+.card-box {
+  width: 690rpx;
+  min-height: 312rpx;
+  margin: 26rpx auto;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img6.jpg) no-repeat;
+  background-size: cover;
+  padding: 50rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 2rpx 2rpx 13rpx rgba(215, 22, 53, 0.09);
+  position: relative; 
+  padding-top: 46.5rpx;
+}
+
+.card-piece1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-piece1 .left .one {
+  font-size: 0;
+  margin-top: 3.5rpx;
+}
+
+.card-piece1 .left .one .h3, .card-piece1 .left .one view {
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.card-piece1 .left .one view {
+  color: #ecd49a;
+  margin-left: 20rpx;
+}
+
+.card-piece1 .left .two {
+  margin-top: 22rpx;
+}
+
+.card-piece1 .right {
+  text-align: right;
+}
+
+.card-piece1 .right .h3, .card-piece1 .right .span {
+  color: #ecd49a;
+}
+
+.card-piece1 .right .h3 {
+  font-size: 48rpx;
+  line-height: 55rpx;
+  font-weight: 600;
+  max-width: 240rpx;
+}
+
+.card-piece1 .right .span {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-top: 12rpx;
+  display: block;
+}
+
+.card-piece2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 590rpx;
+  margin-top: 57rpx;
+}
+
+.card-piece2 .left {
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 24rpx;
+}
+
+.card-piece2 .right {
+  text-align: right;
+}
+
+.card-piece2 .right .h3, .card-piece2 .right .span {
+  color: #ecd49a;
+}
+
+.card-piece2 .right .h3 {
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 40rpx;
+  max-width: 180rpx;
+}
+
+.card-piece2 .right .span {
+  display: block;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-top: 11rpx;
+}
+
+.card-box2 {
+  width: 690rpx;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-box2 view {
+  font-size: 26rpx;
+  color: #252525;
+  width: 332rpx;
+  height: 83rpx;
+  line-height: 83rpx;
+  text-align: center;
+  background: #fff;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+
+page {
+  background: #f4f4f4;
+}
+
+text {
+  display: block;
+}
+
+/* ---------------------- */
+
+.modal-box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+}
+
+.modal-body {
+  background: #fff;
+  width: 690rpx;
+  box-sizing: border-box;
+  padding: 40rpx 64rpx 46rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+}
+
+.modal-body .title {
+  font-size: 30rpx;
+  color: #252525;
+  line-height: 30rpx;
+  padding-bottom: 36rpx;
+  border-bottom: 1rpx solid #eee;
+  text-align: center;
+  position: relative;
+}
+
+.modal-body .title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 62.5rpx;
+  z-index: 9;
+  width: 40rpx;
+  height: 8rpx;
+  background: #d70029;
+  margin-left: -20rpx;
+}
+
+.modal-body .content input {
+  width: 100%;
+  height: 101rpx;
+  line-height: 99rpx;
+  border: 1rpx solid rgba(238, 238, 238, 0.99);
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #999;
+  padding-left: 102rpx;
+}
+
+.modal-body .content .one {
+  margin-top: 34rpx;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img12.png) no-repeat 38.5rpx center;
+  background-size: 25rpx 35rpx;
+}
+
+.modal-body .content .two {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img13.png) no-repeat 36rpx center;
+  background-size: 30rpx 34rpx;
+  margin-top: 24rpx;
+  position: relative;
+}
+
+.modal-body .content .two button {
+  position: absolute;
+  top: 18rpx;
+  right: 19rpx;
+  background: #fff;
+  border-radius: 0;
+  border: 1rpx solid rgba(215, 0, 41, 0.99);
+  height: 65rpx;
+  line-height: 63rpx;
+  font-size: 24rpx;
+  color: #d40630;
+  width: 172rpx;
+  z-index: 10;
+}
+
+.modal-body .content .binding {
+  width: 100%;
+  height: 101rpx;
+  line-height: 101rpx;
+  border: 0;
+  background: #d70029;
+  color: #fff;
+  border-radius: 0;
+  font-size: 30rpx;
+  margin-top: 24rpx;
+}
+
+.modal-body-two .content .one {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img14.png) no-repeat 36rpx center;
+  background-size: 40rpx 30rpx;
+}
+
+.modal-body-two .content .two {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img15.png) no-repeat 42rpx center;
+  background-size: 28rpx 35rpx;
+}

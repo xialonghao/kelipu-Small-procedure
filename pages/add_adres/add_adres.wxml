@@ -1,0 +1,45 @@
+<!--pages/add_adres/add_adres.wxml-->
+
+<form class="adres_form">
+  <view class="adres_input">
+    <text class='adres_input_tit'>收货人姓名</text>
+    <input type="text" name="name" bindblur='username' placeholder-class='putcolor' placeholder="填写收货人姓名"></input>
+  </view>
+  <view class="adres_input">
+    <text class='adres_input_tit'>手机号码</text>
+    <input type="number" name="mobile" bindblur='telthone'  placeholder-class='putcolor' placeholder="收货人手机号码"></input>
+  </view>
+  <view class="adres_input">
+    <text class='adres_input_tit'>收货区域</text>
+    <scroll-view class="infoText" bindtap="translate" scroll-x='true'>
+      <view class='region-infoText'>{{province}} {{city}} {{county}}</view>
+    </scroll-view>
+  </view>
+  <view class="adres_input">
+    <text class='adres_input_tit'>详细地址</text>
+    <input type="text" bindblur='address' name="address" placeholder-class='putcolor' placeholder="详细地址"></input>
+  </view>
+  <!-- <view class="adres_click_input">
+    <radio   bindtap='check'  color='#d7012a' checked='{{dxz}}' />
+    <text>设置为默认地址</text>
+  </view> -->
+   <view class="adres_click_input">
+    <checkbox-group bindchange="check" data-value='1'>
+      <block wx:for="{{allGoodsFilte}}">  
+        <label class="checkbox {{item.checked?'is_checked':''}}">  
+          <text class='check_input'></text>
+          <checkbox value="{{item.danxuan}}" checked="{{item.checked}}" hidden="false"  /> 
+          <text>设置为默认地址</text>           
+        </label>  
+      </block>
+    </checkbox-group>
+  </view>
+  <button bindtap='submits'typr='submit' class="add_adres-save add_adres">保存地址</button>
+</form>
+<import src="../../model/model.wxml" />
+<template is="areaData" data="{{...item}}" />
+
+
+
+
+

@@ -1,0 +1,104 @@
+<!--pages/empty/empty.wxml-->
+
+<view class='empty-piece1'>
+  <view class='content'>
+    <text>您的购物车里还没有商品</text>
+    <navigator bindtap='global_view'>去逛逛</navigator>
+  </view>
+</view>
+<view class='empty-piece2'>
+  <text class='title'>为您推荐</text>
+  <view class="index_shopbox" bindtap='global_view'>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg1.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机晨光 M＆G 经典办...</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg2.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg1.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg2.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg1.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg2.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg1.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg2.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg1.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="" class="shop_wbox">
+      <view class="shop_image">
+        <image mode="aspectFit" src="../public/images/index_proimg2.jpg"></image>
+      </view>
+      <text class="shop_btit">晨光 M＆G 经典办公订书机</text>
+      <view class="shop_num">2600
+        <text>积分/个</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+

@@ -1,0 +1,49 @@
+<!--pages/personal/personal.wxml-->
+
+<view class="my-piece1" bindtap=''>
+  <view class='dl'>
+    <view class='dt'>
+      <image src="http://www.zhxb.com/wechat/kelipu/img5.jpg" mode="aspectFit"></image>
+    </view>
+    <text class='dd'>晨光科力普移动商城</text>
+  </view>
+  <view class="right">
+    <view wx:if="{{list.money }}">
+
+      <text  wx:if="{{project_info.show_price !=1}}" class='h3'>{{list.money}}</text>
+
+      <text  wx:elif="{{order_num>=1}}"  class='h3'>0</text>
+
+      <text  wx:else class='h3'>{{list.money}}</text>
+      <text class='span'>可用积分</text>
+    </view>
+      <button type='button' wx:else class='login-btn' id='../login/login' bindtap="nclickMyLogin">
+        <text>登录</text>
+        <image src='http://www.zhxb.com/wechat/kelipu/img18.png'></image>
+      </button>
+  </view>
+</view>
+<view class="my-piece2" bindtap=''>
+  <view id='5' hover-class='none' bindtap="nclickStatus">
+    <image src="http://www.zhxb.com/wechat/kelipu/img4.png"></image>
+    <text class='span'>待收货</text>
+  </view>
+  <view id="1" hover-class='none' bindtap="nclickStatus">
+    <image src="http://www.zhxb.com/wechat/kelipu/img5.png"></image>
+    <text class='span'>已完成</text>
+  </view>
+  <view id="0" hover-class='none' bindtap="nclickStatus">
+    <image src="http://www.zhxb.com/wechat/kelipu/img6.png"></image>
+    <text class='span'>全部订单</text>
+  </view>
+</view>
+<view class="my-piece3" bindtap=''>
+  <text class="one" id='../card/card' hover-class='none' bindtap="nclickMyLogin" >我的卡
+    <!-- <text>登录后查看</text> -->
+  </text>
+  <text class="two" id='../integral/integral' hover-class='none' bindtap="nclickMyLogin" >我的积分
+    <!-- <text>登录后查看</text> -->
+  </text>
+  <text class="three" id='../address/address' hover-class='none' bindtap="nclickMyLogin" >地址管理</text>
+</view>
+

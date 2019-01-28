@@ -1,0 +1,240 @@
+/* pages/order/order.wxss */
+@import "../public/gobal.wxss";
+.order_nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background: #fff;
+  border-top: 1rpx solid #f4f4f4;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.bor{
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.order_nav view {
+  display: block;
+  width: 33.33%;
+  text-align: center;
+}
+
+.order_nav view text {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  color: #252525;
+  margin: 0 auto;
+}
+
+.order_nav .active text {
+  color: #d70029;
+}
+
+.order_nav .active text::after {
+  content: '';
+  height: 4rpx;
+  width: 100%;
+  background: #d70029;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.order_detail {
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.order_detail .order_tit {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+
+.order_detail .order_tit text {
+  display: block;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 22rpx;
+  color: #252525;
+  max-width: 580rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.order_mess {
+  padding: 10rpx 0;
+  margin: 0 30rpx;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  border-top: 1rpx solid #f4f4f4;
+}
+.order_mess::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.order_mess:first-child{
+  border: none;
+}
+.order_detail .order_mess:nth-child(2) {
+  border-top: none;
+}
+
+.order_mess .order_mess_left {
+  width: 150rpx;
+  height: 150rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  float: left;
+  overflow: hidden;
+}
+
+.order_mess .order_mess_right {
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-top: 14rpx;
+}
+.order_mess .order_mess_right::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.order_mess .order_mess_tit {
+  font-size: 26rpx;
+  color: #252525;
+  width: 325rpx;
+  display: block;
+  line-height: 40rpx;
+  white-space: normal;
+  word-break: break-all;
+  margin-left: 20rpx;
+  text-align: left;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.order_mess_jifen {
+  width: 195rpx;
+  text-align: right;
+  float: right;
+}
+
+.order_mess_inte {
+  font-weight: bold;
+  color: #d71635;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  margin-bottom: 16rpx;
+  margin-top: 3rpx;
+}
+
+.order_mess_inte text {
+  font-size: 24rpx;
+  color: #d70029;
+  display: inline-block;
+  height: 26rpx;
+  line-height: 26rpx;
+  margin-left: 10rpx;
+}
+
+.order_mess_num {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.order_price_de {
+  padding: 0 30rpx;
+  font-size: 22rpx;
+  color: #252525;
+  height: 97rpx;
+  line-height: 97rpx;
+  border-top: 1rpx solid #f4f4f4;
+}
+
+.order_price_de text {
+  padding-left: 11rpx;
+  font-size: 22rpx;
+  height: 97rpx;
+  line-height: 97rpx;
+  display: inline-block;
+}
+
+.order_price_de .color {
+  padding-left: 0;
+  color: #d71635;
+  font-weight: bold;
+}
+.order_price_de navigator {
+width: 146rpx;
+padding: 15rpx 0;
+border: 1rpx solid #eaeaea;
+border-radius: 50rpx;
+display: block;
+font-size: 22rpx;
+color: #666;
+text-align: center;
+margin-top: 22rpx;
+}
+
+.order_price_de view {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  float: right;
+  /* height: 97rpx; */
+}
+
+.nomore {
+  color: #999;
+  font-size: 26rpx;
+  line-height: 82rpx;
+  height: 82rpx;
+  text-align: center;
+  background: #fff;
+}
+nomore {
+  color: #999;
+  font-size: 24rpx;
+  line-height: 82rpx;
+  height: 82rpx;
+  text-align: center;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.no_shop{
+  background: #fff;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 484rpx;
+  height: 400rpx;
+  margin: auto;
+  font-size: 0;
+}
+.no_shop image{
+  width: 184rpx;
+  height: 184rpx;
+}
+.no_shop text{
+  display: block;
+  font-size: 26rpx;
+  color: #252525;
+  margin-top: 40rpx;
+  text-align: center;
+}

@@ -1,0 +1,102 @@
+<!--pages/logistics/logistics.wxml-->
+
+<view class="my-footer logistics">
+
+
+
+<!-- 无物流信息时提示 -->
+  <block wx:if="{{order_basic.logistics_json==''}}">
+  
+    <view class="logistics-title">
+    <view class='left'>
+      <image src='{{order_goods_img}}' mode='aspectFit'></image>
+      <text class='float-text'>{{order_basic. buy_amount}}件商品</text>
+    </view>
+    <view class='right'>
+      <view class='one'>
+        <text>订单编号：</text>
+        <text>{{order_basic.order_sn}}</text>
+      </view>
+       
+        <!-- <view class='two'>
+          <text>承运人：</text>
+          <text>Colipu配送</text>
+        </view> -->
+      
+      <!-- <view class='two'>
+        <text>运单号：</text>
+        <text>2765302256</text>
+      </view>
+      <view class='three'>
+        <text>承运人：</text>
+        <text>顺丰快递</text>
+      </view> -->
+    </view>
+  </view>
+
+ 
+  <!-- 无物流信息时提示 -->
+    <view class='noshop_list'>
+      <image src="http://www.zhxb.com/wechat/kelipu/noshop_img2.jpg"></image>
+      <text>暂无物流信息～</text>
+    </view>
+  
+  </block>
+
+<!-- 有信息时展示 -->
+  <block wx:else>
+  <view class="logistics-title">
+    <view class='left'>
+      <image src='{{order_goods_img}}' mode='aspectFit'></image>
+      <text class='float-text'>{{order_basic.buy_amount}}件商品</text>
+    </view>
+    <view class='right'>
+      <view class='one'>
+        <text>订单编号：</text>
+        <text>{{order_basic.order_sn}}</text>
+      </view>
+      <view wx:if="{{order_basic.logistics_json==''}}">
+      </view>
+       <view wx:else>
+          <view class='two' >
+            <text>承运人：</text>
+            <text>Colipu配送</text>
+          </view>
+        </view>  
+      <!-- <view class='two'>
+        <text>运单号：</text>
+        <text>2765302256</text>
+      </view>
+      <view class='three'>
+        <text>承运人：</text>
+        <text>顺丰快递</text>
+      </view> -->
+    </view>
+  </view>
+   <view class='noshop_list'  wx:if="{{order_basic.logistics_json==''}}">
+      <image src="http://www.zhxb.com/wechat/kelipu/noshop_img2.jpg"></image>
+      <text>暂无物流信息～</text>
+    </view>
+  <view wx:else >
+    <text class='logistics-content-title'>订单跟踪</text>
+    <view class="logistics-content">
+      
+      <view wx:for="{{logisticsArr}}" wx:key="id"> 
+        <view class='logistics-content-class'>
+          <view class='class-address'>
+            <view></view>
+            <text>{{item.content}}</text>
+          </view>
+          <view class='time'>
+            <text>{{item.OperateTime}}</text>
+            <!-- <text>09:40:39</text> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</block>
+
+</view>
+

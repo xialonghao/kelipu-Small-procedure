@@ -1,0 +1,163 @@
+<!-- pages/jiesuan/jiesuan.wxml-->
+<view class="shop_set_adres" bindtap=''>
+   <!-- url='../../pages/jsadress/address' -->
+  <button bindtap="shiji" hidden="{{Sitenote}}" hover-class='none' class='no_mess'>
+     <text>没有地址信息，请点击添加地址</text>
+  </button>
+  <view bindtap="Siteskip" hidden="{{Sitenotes}}" class='address_mess'>
+    <view  class="adres_left">
+      <view>{{addre.name}}</view>
+      <text wx:if="{{addre.is_default==1}}">默认</text>
+
+    </view>
+    <view class="adres_right">
+      <view>{{addre.mobile}}</view>
+      <text>{{addre.address}}{{addre.address.details}}</text>
+    </view> 
+  </view>
+</view>
+<view class="shop_set_bg"  bindtap='' wx:for="{{list}}" wx:for-item="item">
+  <!-- 商品 -->
+  <view class="shop_set_pro" bindtap="">
+    <view class="shop_set_left">
+      <image mode='aspectFit' src="{{item.goods_img}}"></image>
+       <view class='hide'  wx:for='{{sp}}' wx:for-item="sp" wx:if="{{item.goodsid==sp.id && sp.goods_repertory==0}}">宝贝补货中</view>
+        <view class='hide'wx:for='{{sp}}' wx:for-item="sp" wx:if="{{item.goodsid==sp.id && sp.status==0}}">宝贝补货中</view>
+        <!-- <view class='hide'wx:for='{{whas}}' wx:for-item="item" wx:if="{{item.goodsid==item.id && item.status==-1}}">商品不存在</view> -->
+        <block wx:if="{{sp.status==-1}}"  wx:for='{{whas}}' wx:for-item="sp">
+             <view class='hide'  wx:if="{{item.goodsid==sp.id && sp.status==-1}}">商品不存在 </view>
+        </block>
+        <block  wx:for='{{buhuo}}' wx:for-item="sp">
+             <view class='hide'  wx:if="{{item.goodsid==sp.id && item.goods_amount>sp.goods_repertory}}">宝贝补货中 </view>
+        </block>
+    </view>
+    <view class="shop_set_right">
+      <text class="shop_titi">{{item.goods_name}}</text>
+      <view wx:if="{{setmeal==1}}" class="shop_price">
+        <text></text>
+      </view>
+      <view wx:if="{{setmeal==''}}" class="shop_price">{{item.goods_price}}
+        <text>{{jiage}}积分</text>
+      </view>
+      <view class="shop_set_num"wx:if="{{item.goods_unit!=''}}">x{{item.goods_amount}}{{item.goods_unit}}</view>
+      <view class="shop_set_num"wx:if="{{item.goods_unit==''}}">x{{item.goods_amount}}份</view>
+    </view>
+  </view>
+</view>
+<!-- 配送方式 -->
+<view class='white_bg' bindtap=''>
+  <view class="shop_dis">
+    <view>配送方式</view>
+    <text>快递配送</text>
+  </view>
+  <view class="shop_mess">
+    <view>留言说明</view>
+    <input type="text" bindblur="leave" placeholder="请输入给商家的留言"></input>
+  </view>
+  <view class="shop_total_price">
+    <view>商品总价</view>
+    <text wx:if="{{setmeal==1}}">1{{unit['goods_unit']}}</text>
+    <text wx:if="{{setmeal==''}}">{{moneys.order_price}}积分</text>
+  </view>
+  <view  wx:if="{{setmeal==1}}" class="shop_freight">
+    <view>运费</view>
+    <text wx:if="{{yf !='已享受免运费'}}">已享受免运费 </text>
+    <text wx:else> {{yf}}</text>
+  </view>
+    <view wx:if="{{setmeal==''}}" class="shop_freight">
+    <view>运费</view>
+    <text wx:if="{{yf !='已享受免运费' }}">{{yf}} 积分 </text>
+    <text wx:else> {{yf}}</text>
+  </view>
+  <view class="shop_pay">
+    实际支付：
+    <!-- {{xlh.order_price}} -->
+    <block wx:if="{{setmeal==1}}">
+        <text > 1{{unit['goods_unit']}}</text>
+    </block>
+    <block wx:if="{{setmeal==''}}">
+        <text wx:if='{{yf=="已享受免运费"}}'> {{(moneys_order_price*100)/100}} 积分</text>
+         <!-- <text wx:elif='{{yf==0}}'> {{(moneys_order_price*100)/100}} 积分</text> -->
+        <text  wx:else> {{(moneys_order_price*10000+yf*10000)/10000}} 积分</text>
+    </block>
+    <!-- <text wx:if='{{yf=="已享受免运费"}}'> {{(moneys_order_price*100)/100}} 积分</text>
+    <text  wx:else> {{(moneys_order_price*10000+yf*10000)/10000}} 积分</text> -->
+  </view>
+</view>
+<view class="shop_gpay" bindtap=''>
+  <view wx:if="{{setmeal==1}}" class="shop_integ">
+  </view>
+  <view wx:else class="shop_integ">
+    您还有
+    <text class='color'>{{cardka.money}}</text>可用积分
+  </view>
+  <button type='submint' bindtap='payment' class="shop_gpayon">去支付</button>
+</view>
+<view class="modal-box" hidden="{{flag}}" bindtap="hide" catchtouchmove="true"></view>
+<view class=" pay" hidden="{{flag}}">
+  <text class='pay_tit'>支付</text>
+  <view class='clear'>
+    <view class='fl' ><image src="http://www.zhxb.com/wechat/kelipu/pay_img1.jpg"></image></view>
+    <view  class='fr'>
+      <view  wx:if="{{setmeal==1}}">购买商品</view>
+      <text   wx:if="{{setmeal==1}}">1{{unit['goods_unit']}}</text>
+    </view>
+    <view wx:if="{{setmeal==''}}"  class='fr'>
+      <view>购买商品</view>
+      <text  >{{tyt}} 积分</text>
+    </view>
+  </view>
+  <view class=' pay_click'>
+     <button type='submit'  bindtap='confirm'>确认</button>
+  </view>
+  <view bindtap="cancel" class='close_box'></view>
+</view>
+<!-- 支付成功跳转首页订单页面 -->
+<view class="modal-box" hidden="{{pay_flag}}"></view>
+<view class='pay_mess' hidden="{{pay_flag}}">
+  <text class='pay_mess_tit'>订单支付成功</text>
+  <view class='pay_mess_img'>
+    <view class='fl'>
+      <image src="http://www.zhxb.com/wechat/kelipu/pay_img1.png"></image>
+    </view>
+    <view class='fr' wx:if="{{setmeal==1}}">
+      <view>支付结果：</view>
+      <text>1{{unit['goods_unit']}}</text>
+    </view>
+    <view class='fr' wx:else>
+      <view>支付积分：</view>
+      <text>{{tyt}}积分</text>
+    </view>
+  </view>
+  <view class='pay_mess_btn'>
+      <view bindtap="dingdan" hover-class='none' redirect>查看订单</view>
+    <view  bindtap="shouye"  hover-class='none' redirect>返回首页</view>
+  </view>
+</view>
+
+
+
+<!-- <view class="modal-body1" hidden="{{hidden}}">
+商品信息有误请联系客服<text bindtap='tel'>400-118-8366</text>
+</view> -->
+
+<view class="modal-body-two modal-body1" hidden="{{hidden}}" bindtap='tel'>
+商品信息有误请联系客服<view>400-118-8366</view>
+</view>
+<view class="modal-body-two modal-body1" hidden="{{fights}}">
+当前区域不支持配送<view>请选其它区域</view>
+</view>
+<!-- <view class="modal-box" hidden="{{flag}}" bindtap="hide"></view>
+<view class="modal-body-two modal-body" hidden="{{flag}}">
+  <text class='title' hidden="false"></text>
+  <view class='content'>
+    <view class='one'>
+      <input type='text' bindblur="username" hidden="false" placeholder='请输入您的卡号'></input>
+    </view>
+    <view class='two'>
+      <input type='text' bindblur="password" hidden="false" placeholder='请输入密码'></input>
+    </view>
+    <button type='submit' class='binding' bindtap='confirm'>确认</button>
+      <button type='submit' class='bindings' bindtap="cancel">取消</button>
+  </view>
+</view> 

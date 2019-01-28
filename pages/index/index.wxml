@@ -1,0 +1,144 @@
+<!--index.wxml-->
+
+<!-- 引入wxs脚本 --><!-- 通过自定义的module名称tools引用sub截取方法 -->
+<!-- <wxs src="../wxs/subutil.wxs" module="tools" /> -->
+
+
+<view class='shopserch'>
+   <input placeholder='输入商品关键词' placeholder-class='sercolor' value="{{key_word}}" bindinput="wxSearchInput" bindconfirm='search' bindtap='global_view'></input>
+</view>
+<!-- <view class="swiper wrap"> -->
+<swiper indicator-dots="true" bindtap='Cardexpired' autoplay="true" current="{{currentSwiper}}" interval="5000" duration="500" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="#fff">  
+      <block wx:for="{{imgUrls}}" wx:key="id">  
+      
+      <swiper-item >  
+        <image src="https://giftcardapp.colipu.com/upload/picture/{{item.path}}"  bindtap='jump_url'  id ="{{item.jump}}" mode="aspectFill"/>  
+      </swiper-item>  
+      </block> 
+   </swiper>
+  <!-- <swiper indicator-dots="true"   current="0" autoplay="{{autoplay}}"  
+        interval="4500" duration="500" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="#fff">
+    <view wx:for="{{imgUrls}}" wx:key="id">
+    
+      <block wx:if="{{item.path != null}}">
+        <swiper-item>
+          <image src="https://giftcardappuat.colipu.com:9999/upload/picture/{{item.path}}" bindtap='jump_url' id='{{item.jump}}'></image>
+        </swiper-item>
+      </block>
+
+      <!-- <block wx:else>
+        <swiper-item>
+          <image src="https://giftcardappuat.colipu.com:9999/upload/picture/{{item.path}}" bindtap='jump_url' id='{{item.jump}}'></image>
+        </swiper-item>
+      </block> -->
+
+    <!-- </view>      
+  </swiper>  -->
+<!-- <view class="swiper wrap">
+  <swiper autoplay="{{autoplay}}" current="{{currentSwiper}}" bindchange="swiperChange">
+    <block wx:for="{{imgUrls}}" wx:key="key">
+      <swiper-item>
+        <image src="https://giftcardappuat.colipu.com:9999/upload/picture/{{item.path}}" bindtap='jump_url' id='{{item.jump}}'></image>
+      </swiper-item>
+    </block>      
+  </swiper>
+  <view class="dots">
+    <block wx:for="{{imgUrls}}" wx:key="id">
+      <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+    </block>
+  </view>    -->
+<!-- </view> -->
+
+<!-- 以下代码为字符截取 -->
+<wxs module="util">
+    var sub = function(val) {
+      if (val.length > 5) {
+        return val.substring(0, 5)+'...';
+      } else {
+        return val;
+      }        
+    }
+    module.exports.sub = sub;
+</wxs>
+
+<view class="index_nav" bindtap=''>   
+  <view bindtap='listnav' data-id="{{item.id}}" class="index_navbox" wx:for='{{classify}}' wx:key="key" data-current="{{index}}" open-type="switchTab">
+    
+    <block wx:if="{{item.path}}">  <!-- 如果后台上传了分类图片就显示图片 -->
+      <image mode="aspectFit" src="https://giftcardapp.colipu.com/upload/picture/{{item.path}}" data-id="{{item.id}}"></image>
+    </block>
+    <block wx:else>  <!-- 否则显示默认图片 -->
+      <image mode="aspectFit" src="../public/images/fenlei_photo.png" data-id="{{item.id}}"></image>
+    </block>
+
+    <text>{{item.cate_name}}</text>   <!-- {{util.sub(item.cate_name)}}  -->
+  </view>
+</view> 
+<view class="index_shop" bindtap='Cardexpired'>   
+  <view class="index_tit"> 
+    <text>精选商品</text>
+    <!-- <navigator hover-class='none' url="">更多>></navigator>    -->
+    <view hover-class='none' bindtap='seeMore' class="clickMore">更多>></view>
+  </view>
+
+  <!-- 登录后显示的商品列表(显示具体积分) -->
+  <!-- <block wx:if="{{cardid !== null}}"> -->
+  <!-- <block wx:if="{{cardid}}"> -->
+    <view class="index_shopbox">
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}' bindtap='global_view'>
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+          
+          <block wx:if="{{show_price == 0}}">
+            <view class="shop_num">{{item.goods_price}}
+              <text>积分/{{item.goods_unit}}</text>
+            </view>
+          </block>
+
+          <block wx:if="{{show_price == 1}}">
+            <view class="shop_num">1
+              <text>{{item.goods_unit}}</text>
+            </view>
+          </block>
+
+          <block wx:if="{{show_price == 2}}">
+            <view class="shop_num">{{item.goods_price}}
+              <text>积分/{{item.goods_unit}}</text>
+            </view>
+          </block>
+
+        </navigator>
+      </block> 
+    </view>
+  <!-- </block> -->
+  
+  <!-- 登录前显示的商品列表(显示具体积分) -->
+  <!-- ="{{cardid}}" -->
+  <!-- <block wx:else="{{cardid}}">
+    <view class="index_shopbox">
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}'>
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+          <view class="shop_num">***
+            <text>积分/{{item.goods_unit}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </block> -->
+  
+  <!-- 加载完20条商品后才显示这个 -->
+  <block wx:if="{{showMore}}">
+    <view hover-class='none' bindtap='seeMore' class="seeMore">点击查看更多分类</view>
+  </block>
+
+  <!-- <load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more> -->
+</view>
+
+ 

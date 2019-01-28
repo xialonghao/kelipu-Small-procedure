@@ -1,0 +1,69 @@
+<!--pages/card/card.wxml-->
+
+<view class="card-box" bindtap=''>
+  <view class="card-piece1">
+    <view class="left">
+      <view class="one">
+        <text class='h3'>卡号:{{list.gift_number}}</text>
+        <view bindtap="show">[ 更换 ]</view>
+      </view>
+      <view class="two one" bindtap="block">
+        <text class='h3'>手机: {{mobshow.mobile}}</text>
+        <view bindtap='global_view'>[ 更换 ]</view>
+      </view>
+    </view>
+    <view wx:if="{{project_info.show_price !=1}}" class="right">
+      <text class='h3'>{{list.money}}</text>
+      <text class='span'>可用积分</text>
+    </view>
+    <view wx:elif="{{order_num>=1}}" class="right">
+      <text class='h3'>0</text>
+      <text class='span'>可用积分</text>
+    </view>
+    <view wx:else class="right">
+      <text class='h3'>{{list.money}}</text>
+      <text class='span'>可用积分</text>
+    </view>
+  </view>
+  <view class="card-piece2">
+    <text class="left">有效期：{{list.open_time}} 至 {{list.tie_time}}</text>
+    <view class="right">
+      <text class='h3'>{{mianzhi}}</text>
+      <text class='span'>面值</text>
+    </view>
+  </view>
+</view>
+<view class="card-box2">
+  <view bindtap="block">绑定手机号</view>
+  <view bindtap="show">绑定积分卡</view>
+</view>
+<!-- -------------------------------------- -->
+<view class="modal-box" hidden="{{flag_two}}" bindtap="none"></view>
+<view class="modal-body" hidden="{{flag_two}}">
+  <text class='title'>更换手机号</text>
+  <view class='content'>
+    <view class='one'>
+      <input type='text'  bindinput='changenumber' placeholder='请输入您的手机号' value="{{mobiles}}"></input>
+    </view>
+    <view class='two'>
+      <input type='text' bindinput='phoneverifier' placeholder='请输入验证码' value="{{code}}"></input>
+      <button type='button' bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
+    </view>
+    <button type='submit' class='binding' bindtap="nones">绑定</button>
+  </view>
+</view>
+<!-- ---------------- -->
+<view class="modal-box" hidden="{{flag}}" bindtap="hide"></view>
+<view class="modal-body-two modal-body" hidden="{{flag}}">
+  <text class='title'>更换积分卡</text>
+  <view class='content'>
+    <view class='one'>
+      <input type='text' bindinput="username" placeholder='请输入您的卡号' value="{{mobiles}}"></input>
+    </view>
+    <view class='two'>
+      <input type='password' bindinput="password" placeholder='请输入密码' value="{{code}}"></input>
+    </view>
+    <button type='submit' class='binding' bindtap="hides">绑定</button>
+  </view>
+</view>
+

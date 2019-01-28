@@ -1,0 +1,32 @@
+<!--pages/integral/integral.wxml-->
+
+<view class='integral-piece1' bindtap="Cardexpired">
+  <view class='left'>
+    <text class='one'>{{onfi.bei_money}}</text>
+    <text class='two'>我的积分</text>
+  </view>
+  <view class='right'>
+    <text class='one'>{{onfi.money}}</text>
+    <text class='two'>可用积分</text>
+  </view>
+</view>
+<view class='integral-piece2'  bindtap="Cardexpired">
+  <view class='title'>积分明细</view>
+  <view class='content'>
+    <view class='list' wx:for="{{list}}" wx:for-item="item">
+      <view class='left'>
+        <text class='one'>{{item.marked }}</text>
+        <text class='two'>{{item.create_time}}</text>
+      </view>
+      
+      <view class='rightwi' wx:if="{{item.is_add==0}}">
+          <text class='right'>+{{item.integral}}</text>
+        </view>
+       <view class='rightwi' wx:else>
+       <text class='right' wx:if="{{project_info.show_price == 1}}">-{{onfi.bei_money}}</text>
+       <text class='right' wx:else>-{{item.integral}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+

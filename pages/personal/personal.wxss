@@ -1,0 +1,176 @@
+/* pages/personal/personal.wxss */
+@import "../public/gobal.wxss";
+
+.my-piece1 {
+  height: 220rpx;
+  background: #2b2b2a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.my-piece1 .dl {
+  font-size: 0;
+}
+
+.my-piece1 .dl .dt, .my-piece1 .dl .dd {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my-piece1 .dl .dt {
+  overflow: hidden;
+  width: 95rpx;
+  height: 95rpx;
+  font-size: 0;
+  line-height: 95rpx;
+  text-align: center;
+}
+
+.my-piece1 .dl .dt image {
+  max-width: 100%;
+  max-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 15rpx;
+}
+
+.my-piece1 .dl .dd {
+  color: #fff;
+  font-size: 30rpx;
+  margin-left: 24rpx;
+  line-height: 30rpx;
+}
+
+.my-piece1 .right {
+  text-align: right;
+}
+
+.my-piece1 .right .h3 {
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 46rpx;
+  font-weight: bold;
+  max-width: 250rpx;
+  display: block;
+}
+
+.my-piece1 .right .span {
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-top: 11rpx;
+  display: block;
+}
+
+.my-piece1 .right .login-btn {
+  border-radius: 0;
+  background: #2b2b2a;
+  width: 140rpx;
+  height: 64rpx;
+  border: 1rpx solid #fff;
+  padding: 0;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-piece1 .right .login-btn text {
+  font-size: 26rpx;
+  color: #fff;
+  line-height: 26rpx;
+}
+
+.my-piece1 .right .login-btn image {
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 17rpx;
+}
+
+.my-piece2 {
+  display: flex;
+  justify-content: center;
+  border-top: 15rpx solid #f4f4f4;
+  border-bottom: 15rpx solid #f4f4f4;
+}
+
+.my-piece2 view {
+  display: block;
+  width: 250rpx;
+  text-align: center;
+  font-size: 0;
+  padding: 34rpx 0;
+}
+
+.my-piece2 view image {
+  width: 42rpx;
+  height: 42rpx;
+  display: block;
+  margin: auto;
+}
+
+.my-piece2 view:first-child image {
+  width: 51rpx;
+}
+
+.my-piece2 view .span {
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #252525;
+  margin-top: 18rpx;
+}
+
+.my-piece3 {
+  width: 690rpx;
+  margin: auto;
+}
+
+.my-piece3 text {
+  height: 112rpx;
+  line-height: 112rpx;
+  display: block;
+  font-size: 26rpx;
+  color: #252525;
+  padding-left: 78rpx;
+  border-bottom: 1rpx solid #efefef;
+  position: relative;
+}
+
+.my-piece3 .one {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img7.png) 24rpx center no-repeat,
+                url(http://giftcardapp.colipu.com/static/module/admin/img/img11.png) right center no-repeat;
+  background-size: 37rpx 28rpx, 14rpx 27rpx;
+}
+
+.my-piece3 .two {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img8.png) 24rpx center no-repeat,
+                url(http://giftcardapp.colipu.com/static/module/admin/img/img11.png) right center no-repeat;
+  background-size: 34rpx 34rpx, 14rpx 27rpx;
+}
+
+.my-piece3 .three {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img9.png) 24rpx center no-repeat,
+                url(http://giftcardapp.colipu.com/static/module/admin/img/img11.png) right center no-repeat;
+  background-size: 33rpx 33rpx, 14rpx 27rpx;
+}
+
+.my-piece3 .four {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img10.png) 24rpx center no-repeat,
+                url(http://giftcardapp.colipu.com/static/module/admin/img/img11.png) right center no-repeat;
+  background-size: 35rpx 32rpx, 14rpx 27rpx;
+}
+
+.my-piece3 text text {
+  position: absolute;
+  right: 32rpx;
+  top: 0;
+  height: 112rpx;
+  line-height: 112rpx;
+  font-size: 26rpx;
+  color: #666;
+  z-index: 0;
+}

@@ -1,0 +1,21 @@
+<!--pages/address/address.wxml-->
+
+<view class='adres_bg' bindtap='Cardexpired'>
+  <view class="address_mess" wx:for="{{list}}" wx:for-item="item">
+    <view class="adres_left">
+      <view>{{item.name}}</view>
+      <label>
+        <text wx:if="{{item.is_default =='1'}}">默认</text>
+      </label>
+    </view>
+    <view class="adres_right">
+      <view>{{item.mobile}}</view>
+      <text>{{item.address}} {{item.address_details}} </text>
+    </view>
+    <navigator url='updata?id={{item.id}}&card_id={{item.card_id}}&is_default={{item.is_default}}&name={{item.name}}&mobile={{item.mobile}}&address={{item.address}}&address_details={{item.address_details}}&status={{item.status}}' hover-class='none' class="adres_click" bindtap='global_view'></navigator>
+  </view>
+</view>
+<view class='adclick'>
+  <navigator url='../add_adres/add_adres' hover-class='none' class="add_adres" bindtap='global_view'>+ 添加地址</navigator>
+</view>
+

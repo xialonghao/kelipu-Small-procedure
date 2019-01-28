@@ -1,0 +1,4 @@
+<!--components/load-more/index.wxml-->
+<view class="loadmore" hidden='{{!showThis}}' bindtap='clickLoadMore'>
+    <text>{{text}}</text>
+</view>

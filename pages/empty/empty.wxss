@@ -1,0 +1,49 @@
+/* pages/empty/empty.wxss */
+@import "../public/gobal.wxss";
+@import "../index/index.wxss";
+
+.empty-piece1 {
+  border-top: 15rpx solid #f4f4f4;
+  border-bottom: 15rpx solid #f4f4f4;
+  font-size: 0;
+  text-align: center;
+  padding: 70rpx 0;
+}
+
+.empty-piece1 .content {
+  height: 95rpx;
+  padding-left: 118rpx;
+  display: inline-block;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img19.png) no-repeat left center;
+  background-size: 85rpx 95rpx;
+}
+
+.empty-piece1 .content text {
+  display: block;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #252525;
+}
+
+.empty-piece1 .content navigator {
+  display: block;
+  width: 99rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 26rpx;
+  color: #fff;
+  background: #d70029;
+  border-radius: 5rpx;
+  text-align: center;
+  margin-top: 27rpx;
+}
+
+.empty-piece2 .title {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #212112;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-weight: bold;
+}

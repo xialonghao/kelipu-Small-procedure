@@ -1,0 +1,114 @@
+/* pages/address/address.wxss */
+@import "../public/gobal.wxss";
+page{
+  background: #f4f4f4;
+}
+.address_mess{
+	background: #fff;
+	margin-top: 15rpx;
+	padding: 30rpx;
+	box-sizing: border-box;
+	padding-bottom: 23rpx;
+	position: relative;
+  padding-top: 25rpx;
+}
+.address_mess::after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.adres_left,
+.adres_right{
+	float: left;
+}
+.adres_left{
+	width: 120rpx;
+	word-wrap:break-word;
+	box-sizing: border-box;
+	padding-right: 10rpx;
+}
+.adres_right{
+	width: 505rpx;
+}
+.adres_left view{
+	font-size: 26rpx;
+	color: #252525;
+	margin-bottom: 13rpx;
+  letter-spacing: 1rpx;
+}
+.adres_left text{
+	width: 66rpx;
+	height: 33rpx;
+	border: 1rpx solid #df3354;
+	border-radius: 5rpx;
+	font-size: 20rpx;
+	color: #d70029;
+	display: block;
+	text-align: center;
+	line-height: 35rpx;
+}
+
+.adres_right view{
+	font-size: 26rpx;
+	color: #252525;
+  line-height: 36rpx;
+}
+.adres_right text{
+	font-size: 24rpx;
+	color: #666;
+	display: block;
+	margin-top: 22rpx;
+	line-height: 38rpx;
+  text-align: justify;
+}
+.adres_bg{
+  padding-bottom: 300rpx;
+}
+.adres_click{
+	position: absolute;
+	width: 62rpx;
+    line-height:62rpx;
+    background: url(http://giftcardapp.colipu.com/static/module/admin/img/address_img1.png) no-repeat right center;
+    background-size: 32rpx 32rpx;
+	right: 30rpx;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+.adclick{
+  width: 100%;
+  background: #f4f4f4;
+  position: fixed;
+	bottom: 0rpx;  
+	height: 86rpx;
+  padding: 30rpx;
+}
+.add_adres{
+	position: fixed;
+	bottom: 30rpx;
+	left: 0;
+	right: 0;
+	width: 690rpx;
+	height: 86rpx;
+	border: 1rpx solid #d70029;
+	box-sizing: border-box;
+	margin: auto;
+	line-height: 84rpx;
+	font-size: 26rpx;
+	color: #d70029;
+	text-align: center;
+	border-radius: 7rpx;
+	background: #fff;
+}
+
+
+
+.adres_left view{
+	font-size: 26rpx;
+	color: #252525;
+	margin-bottom: 13rpx;
+  line-height: 36rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

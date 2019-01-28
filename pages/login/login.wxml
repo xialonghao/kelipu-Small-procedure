@@ -1,0 +1,25 @@
+<!--pages/login/login.wxml-->
+
+<image class='logo' src='http://www.zhxb.com/wechat/kelipu/logo.png'></image>
+<view class="modal-body-two modal-body">
+  <view class='content'>
+    <view class='one'>
+      <input type='text' bindinput='username' placeholder='请输入您的卡号'focus="{{focus}}"></input>
+    </view>
+    <view class='two'>
+      <input type='password' bindinput='password' placeholder='请输入您的密码'focus="{{focus}}"></input>
+    </view>
+    <button type='submint' bindtap='landing' class='binding'>登录</button>
+  </view>
+</view>
+<view class='login-piece3'>
+    <text class='title'>用其他方式登录</text>
+<!-- <navigator url="../../pages/phone_login/phone_login"> -->
+  <view  hover-class='none'  bindtap='re_login'>
+  <view class='content'>
+    <image class='other' src='http://www.zhxb.com/wechat/kelipu/img16.png'></image>
+    <text>用手机验证登录</text>
+  </view>
+</view>
+</view>
+

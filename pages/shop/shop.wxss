@@ -1,0 +1,361 @@
+/* pages/shop/shop.wxss */
+@import "../public/gobal.wxss";
+@import "../index/index.wxss";
+
+page {
+  background: #f4f4f4;
+}
+
+ .shop_boxbg {
+  /* padding-bottom: 300rpx; */
+} 
+
+.shop_box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 200rpx;
+  margin-top: 15rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background: #fff;
+}
+.index_shopbox{
+  border-top: 1px solid #f4f4f4;
+}
+.good_checkbox {
+  width: 45rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 0;
+}
+
+.good_checkbox label {
+  display: inline-block;
+  height: 20px;
+  font-size: 0;
+  width: 45rpx;
+}
+
+.good_checkbox label icon {
+  width: 20px;
+  height: 20px;
+}
+
+.shop_box .shop_box_left {
+  width: 150rpx;
+  height: 150rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 25rpx;
+  overflow: hidden;
+}
+
+.shop_box .shop_box_left image {
+  max-width: 100%;
+}
+
+.shop_box .shop_box_right {
+  margin-left: 25rpx;
+  width: 470rpx;
+  position: relative;
+}
+
+.shop_nums .shop_reduce, .shop_nums .shop_add {
+  width: 40rpx;
+  height: 39rpx;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/shop_reduce.png) no-repeat center;
+  background-size: 40rpx 39rpx;
+}
+
+.shop_num_text {
+  height: 39rpx;
+  line-height: 39rpx;
+  font-size: 30rpx;
+  color: #252525;
+  width: 62rpx;
+  text-align: center;
+}
+
+.shop_nums .shop_add {
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/shop_add.png) no-repeat center;
+  background-size: 40rpx 39rpx;
+}
+
+.shop_titi {
+  color: #252525;
+  font-size: 26rpx;
+  line-height: 46rpx;
+  white-space: normal;
+  margin-top: 29rpx;
+  display: block;
+  text-align: left;
+  word-break:break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shop_price {
+  position: absolute;
+  left: 0;
+  bottom: 35rpx;
+  font-size: 26rpx;
+  color: #d71635;
+  font-weight: bold;
+  max-width: 250rpx;
+}
+
+.shop_price text {
+  color: #d70029;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-left: 15rpx;
+}
+
+.shop_nums {
+  position: absolute;
+  right: 68rpx;
+  bottom: 34rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.shop_delete {
+  width: 47rpx;
+  height: 33rpx;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/shop_delete.png) no-repeat center right;
+  background-size: 27rpx 33rpx;
+  position: absolute;
+  right: 5rpx;
+  bottom: 37rpx;
+}
+
+.shop_set {
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 750rpx;
+  margin: auto;
+  background: #fff;
+  border-top: 1rpx solid #efefef;
+}
+
+
+.shop_btit {
+  text-align: left;
+  word-break:break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shop_set checkbox-group {
+  float: left;
+  height: 119rpx;
+  /* line-height: 119rpx; */
+  padding-left: 30rpx;
+  position: relative;
+}
+
+.shop_set checkbox-group label {
+  font-size: 0;
+  height: 119rpx;
+}
+
+.shop_set checkbox-group label icon {
+  position: absolute;
+  top: 50%;
+  left: 30rpx;
+  margin-top: -11.5px;
+  width: 20px;
+  height: 20px;
+}
+
+.shop_set checkbox-group label text {
+  font-size: 26rpx;
+  line-height: 26rpx;
+  height: 26rpx;
+  display: inline-block;
+  margin-left: 48rpx;
+  margin-top: 48rpx;
+}
+
+.shop_set .shop_set_price {
+  width: auto;
+  height: 119rpx;
+  line-height: 119rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #000;
+  float: right;
+  padding-right: 25rpx;
+}
+
+.shop_set .shop_set_price view,
+.shop_set .shop_set_price text {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #d7012a;
+  max-width: 200rpx;
+}
+.shop_set .shop_set_price text{
+  max-width: 200rpx;
+  vertical-align: middle;
+  line-height: 36rpx;
+  margin-top: -5rpx;
+}
+
+.shop_set .shop_set_btn {
+  width: 265rpx;
+  background: #d7012a;
+  font-size: 30rpx;
+  color: #fff;
+  letter-spacing: 2rpx;
+  border-radius: 0;
+  line-height: 119rpx;
+  text-align: center;
+  float: right;
+}
+
+.empty-piece1 {
+  border-top: 15rpx solid #f4f4f4;
+  border-bottom: 15rpx solid #f4f4f4;
+  font-size: 0;
+  text-align: center;
+  padding: 70rpx 0;
+  background: #fff;
+}
+
+.empty-piece1 .content {
+  height: 95rpx;
+  padding-left: 118rpx;
+  display: inline-block;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img19.png) no-repeat left center;
+  background-size: 85rpx 95rpx;
+}
+
+.empty-piece1 .content text {
+  display: block;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #252525;
+}
+
+.empty-piece1 .content .Visitthe  text{
+  display: block;
+  width: 99rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 26rpx;
+  color: #fff;
+  background: #d70029;
+  border-radius: 5rpx;
+  text-align: center;
+  margin-top: 27rpx;
+}
+.empty-piece2 .title {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #212112;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-weight: bold;
+}
+
+.empty-piece2 {
+  background: #fff;
+}
+
+
+
+/* "没有更多了~"的样式 */
+/* .seeMore{
+font-size: 26rpx;
+text-align: center;
+padding: 35rpx 0;
+color: #333;
+} */
+
+/* "没有更多了~"的样式 */
+.nomore {
+color: #999;
+font-size: 26rpx;
+line-height: 82rpx;
+height: 82rpx;
+text-align: center;
+background: #fff;
+}
+
+
+.pad_page{
+padding-bottom: 300rpx;
+}
+
+.shop_box_left{
+  position: relative;
+}
+.shop_box_left .hide{
+  width: 100%;
+  height: 40rpx;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #fff;
+  text-align: center;
+}
+.shop_box_left{
+  position: relative;
+}
+.shop_box_left .hide{
+  width: 100%;
+  height: 40rpx;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+/* 新增 */
+
+
+
+.modal-body {
+  background: rgba(0, 0, 0, 0.6);
+  width: 550rpx;
+  box-sizing: border-box;
+  padding: 60rpx 30rpx;
+  position: fixed;
+  top: 50%;
+  font-size: 24rpx;
+  color: #fff;
+  left: 50%;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  border-radius: 8rpx;
+  text-align: center;
+}
+.modal-body text{
+  padding-left: 10rpx;
+}

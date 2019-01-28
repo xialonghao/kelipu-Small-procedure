@@ -1,0 +1,72 @@
+<!--pages/order/order.wxml-->
+
+<view class="order_nav" bindtap=''>
+  <view  class="{{orderStatus==0?'active':''}}" id="0" bindtap="nclickStatus" >
+    <text url="" hover-class='none' >全部订单</text>
+  </view>
+  <view class="{{orderStatus==5?'active':''}}" id="5" bindtap="nclickStatus" >
+    <text url="" hover-class='none'>待收货</text>
+  </view>
+  <view class="{{orderStatus==1?'active':''}}"  id="1" bindtap="nclickStatus" >
+    <text url="" hover-class='none'>已完成</text>
+  </view>
+</view>
+
+<view wx:if="{{orderList}}" bindtap='Cardexpired'>
+  <view wx:for="{{orderList}}" wx:key="id" class='bor'>
+    <view class="order_detail" bindtap='Cardexpired'>
+      <view class="order_tit">
+        <text>订单编号：{{item.order_sn}}</text>
+        <text class="order_sate" wx:if="{{item.order_status ==0 }}"> 待收货</text>
+        <text class="order_sate" wx:elif="{{item.order_status ==1 }}">签收</text>
+        <text class="order_sate" wx:elif="{{item.order_status ==4 }}">退换货</text>
+        <text class="order_sate" wx:elif="{{item.order_status ==5 }}">已发货</text>
+        <text class="order_sate" wx:elif="{{item.order_status ==-3 }}">拒收</text>
+        <text class="order_sate" wx:elif="{{item.order_status ==-2 }}">取消</text>
+      </view>
+    
+      <view class="order_mess" wx:for="{{item.orderGoods}}" wx:key="id">
+        <navigator hover-class='none' class="order_mess_left" url='../order_details/order_details?id={{item.order_id}}'>
+          <image mode='aspectFit' src="{{item.goods_img}}"></image>
+        </navigator>
+        <view class="order_mess_right">
+          <navigator hover-class='none' class="order_mess_tit" url='../order_details/order_details?id={{item.order_id}}'>{{item.goods_name}}</navigator>
+          <view class="order_mess_jifen">
+          <block wx:if="{{project_info.show_price!=1}}">
+            <view class="order_mess_inte" >{{item.goods_price}}
+              <text>积分</text>
+            </view>
+          </block>
+            <text class="order_mess_num" wx:if="{{item.goods_unit!=''}}">x{{item.goods_amount}}{{item.goods_unit}}</text>
+            <text class="order_mess_num" wx:if="{{item.goods_unit==''}}">x{{item.goods_amount}}份</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="order_price_de">
+        共{{item.buy_amount}}件
+    <block wx:if="{{project_info.show_price!=1}}">
+        <text>合计：</text>
+        <text class="color">{{item.order_price}}积分</text>
+     </block>
+      <block wx:else>
+        <text>合计：</text>
+        <text class="color">{{item.buy_amount}}{{item.orderGoods[0].goods_unit}}</text>
+      </block>
+        <view>
+          <navigator url="../logistics/logistics?order_id={{item.id}}" hover-class='none' bindtap='global_view'>查看物流</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="nomore">
+    {{orderList==null?'暂无数据':'已经到底了～'}}
+  </view>
+</view>
+
+<view class="no_shop" wx:else>
+  <image src="http://www.zhxb.com/wechat/kelipu/noshop_img1.jpg"></image>
+  <text>您还没有相关的订单哦～</text>
+</view>
+

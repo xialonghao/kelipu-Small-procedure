@@ -1,0 +1,101 @@
+<!--pages/order_details/order_details.wxml-->
+
+<view class='order-details-piece1'>
+  <view class='order-details-state'>
+    <text class='one'>订单状态：</text>
+    <text class='two'>{{order_de.order_status}}</text>
+  </view>
+  <view class='order-details-number'>
+    <text class='one'>订单编号：</text>
+    <text class='two'>{{order_de.order_sn}}</text>
+  </view>
+  <view class='order-details-time'>
+    <text class='one'>下单时间：</text>
+    <text class='two'>{{order_de.create_time}}</text>
+    <text class='three'></text>
+  </view>
+  
+    <view class='order-details-time mess'>
+      <text class='one'>备注信息：</text>
+      <text class='two'>{{order_de.order_remark?order_de.order_remark:'无'}}</text>
+      <text class='three'></text>
+    
+  </view>
+  <view class='order-details-query'>
+  <block wx:if="{{project_info.show_price!=1}}">
+    <text class='one'>实际支付：</text>
+    <text class='two'>{{order_de.order_price}}积分</text>
+  </block>
+   <block wx:else>
+    <text class='one'>实际支付：</text>
+    <text class='two'>{{order_de.buy_amount}}{{order_goods[0].goods_unit}}</text>
+  </block>
+    <navigator hover-class='none' url='../logistics/logistics?order_id={{order_de.id}}' bindtap='global_view'>物流查询</navigator>
+  </view>
+</view>
+<view class='order-details-piece2'>
+  <view class='content'>
+    <view wx:for="{{order_goods}}" wx:key="id" bindtap="up_goods" id="{{item.goodsid}}">
+      <view class="shop_set_pro">
+        <view class="shop_set_left">
+          <image mode='aspectFit' src="{{item.goods_img}}"></image>
+        </view>
+        <view class="shop_set_right">
+          <text class="shop_titi">{{item.goods_name}}</text>
+        <block wx:if="{{project_info.show_price!=1}}">
+          <view class="shop_price">{{item.goods_price}}
+            <text>积分</text>
+          </view>
+        </block>
+
+          <view class="shop_set_num" wx:if="{{item.goods_unit!=''}}">x{{item.goods_amount}}{{item.goods_unit}}</view>
+          <view class="shop_set_num" wx:if="{{item.goods_unit==''}}">x{{item.goods_amount}}份</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class='total'>共{{num}}件商品</text>
+</view>
+<view class='order-details-piece3'>
+  <view class='one'>
+    <text>{{order_de.order_name}}</text>
+    <text>{{order_de.mobile}}</text>
+  </view>
+  <text class='two'>{{order_de.address}}</text>
+</view>
+<!-- <block wx:if="{{project_info.show_price!=1}}"> -->
+  <view class='order-details-piece4'>
+    <view class='total-price'>
+      <text>商品总价</text>
+      <text wx:if="{{project_info.show_price==1}}">{{order_de.buy_amount}}{{order_goods[0].goods_unit}}</text>
+      <text wx:else>{{(order_de.order_price*10000-order_de.freight*10000)/10000}} 积分</text>
+    </view>
+    <view class='freight'>
+      <text>运费</text>
+      <text wx:if="{{order_de.freight != 0 }}">{{order_de.freight}} 积分</text>
+      <text wx:else> 已享受免运费</text>
+    </view>
+    <view class='pay'>
+      <text>实际支付：</text>
+      <text wx:if="{{project_info.show_price==1}}">{{order_de.buy_amount}}{{order_goods[0].goods_unit}}</text>
+      <text wx:else>{{order_de.order_price}} 积分</text>
+    </view>
+  </view>
+<!-- </block> -->
+<!-- <block wx:elif="{{project_info.show_price!=0}}">
+  <view class='order-details-piece4'>
+    <view class='total-price'>
+      <text>商品总价</text>
+      <text>0.00积分</text>
+    </view>
+    <view class='freight'>
+      <text>运费</text>
+      <text>0.00 积分</text>
+    </view>
+    <view class='pay'>
+      <text>实际支付：</text>
+      <text>0.00积分</text>
+    </view>
+  </view>
+</block> -->
+

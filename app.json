@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/jiesuan/jiesuan",      
+    "pages/card/card",
+    "pages/jsadress/address",      
+     "pages/shop/shop",       
+    "pages/shopdetails/shopdetails", 
+    "pages/logs/logs",
+    "pages/fenlei/fenlei",
+    "pages/shoplist/shoplist",
+    "pages/personal/personal",
+    "pages/address/address",
+    "pages/address/updata",
+    "pages/add_adres/add_adres",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/jsadress/updata",
+    "pages/jsadress/add_adres", 
+    "pages/phone_login/phone_login",
+    "pages/integral/integral",
+    "pages/order_details/order_details",
+    "pages/logistics/logistics",
+    "pages/empty/empty" 
+  ],  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "晨光科力普移动商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#d70029",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/public/images/footer_nav1.png",
+        "selectedIconPath": "pages/public/images/footer_nav1_on.png"
+      },
+      {
+        "pagePath": "pages/fenlei/fenlei",
+        "text": "分类",
+        "iconPath": "pages/public/images/footer_nav2.png",
+        "selectedIconPath": "pages/public/images/footer_nav2_on.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "购物车",
+        "iconPath": "pages/public/images/footer_nav3.png",
+        "selectedIconPath": "pages/public/images/footer_nav3_on.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "pages/public/images/footer_nav4.png",
+        "selectedIconPath": "pages/public/images/footer_nav4_on.png"
+      }
+    ]
+  }
+}

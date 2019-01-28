@@ -1,0 +1,225 @@
+/* pages/shopdetails/shopdetails.wxss */
+@import "../public/gobal.wxss";
+
+
+.swiper, swiper {
+  height: 586rpx;
+  background: #fff; 
+}
+
+swiper-item {
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+}
+
+swiper-item image {
+  max-width: 100%;
+  height: auto;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 96rpx;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #bdbdbd;
+  margin: 0 4rpx;
+}
+
+.dot.active {
+  background: #252525;
+}
+
+.goods-details-piece1-box2 {
+  width: 702rpx;
+  margin: 142rpx auto 0;
+  padding-bottom: 36rpx;
+  margin-top: 10rpx;
+}
+
+.goods-details-piece1-box2 .title {
+  font-size: 28rpx;
+  color: #252525;
+  text-align: justify;
+  line-height: 40rpx;
+  margin: 14rpx 0 30rpx;
+  display: block;
+}
+
+.goods-details-piece1-box2 .price {
+  font-size: 0;
+  display: block;
+}
+
+.goods-details-piece1-box2 .price text {
+  display: inline-block;
+  font-size: 20rpx;
+  color: #d71635;
+  line-height: 36rpx;
+  height: 36rpx;
+}
+
+.goods-details-piece1-box2 .price .one {
+  font-size: 36rpx;
+  margin-right: 11rpx;
+}
+
+.goods-details-piece1-box2 .price .two {
+  height: 20rpx;
+  line-height: 20rpx;
+}
+
+.goods-details-piece1 {
+  border-bottom: 18rpx solid #f4f4f4;
+}
+
+.goods-details-piece2 {
+  padding: 0 24rpx;
+  border-bottom: 18rpx solid #f4f4f4;
+}
+
+.goods-details-piece2 text {
+  font-size: 24rpx;
+  color: #252525;
+  line-height: 24rpx;
+  display: block;
+}
+
+.goods-details-piece2 view {
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goods-details-piece2 view:first-child {
+  border-bottom: 1rpx solid #efefef;
+}
+
+.goods-details-piece3 {
+  padding-bottom: 28rpx;
+  /* border-bottom: 1rpx solid #ccc; */
+}
+
+.goods-details-piece3 .title {
+  font-size: 26rpx;
+  color: #252525;
+  text-align: center;
+  background: url(http://giftcardapp.colipu.com/static/module/admin/img/img1.png) no-repeat center;
+  background-size: 215rpx 12rpx;
+  margin: 46rpx auto;
+}
+
+.goods-details-piece3 .content {
+  width: 702rpx;
+  margin: auto;
+  text-align: center;
+  font-size: 24rpx;
+  color: #252525;
+}
+
+.goods-details-piece3 .content image {
+  width: 100%;
+}
+.goods-details-piece3 .content text,
+.goods-details-piece3 .content view,
+.goods-details-piece3 .content navigator{
+  line-height: 40rpx!important;
+  font-size: 24rpx;
+}
+.goods-details-piece4 {
+  padding: 14rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  border-top: 1rpx solid #efefef;
+}
+
+.goods-details-piece4 .one {
+  width: 204rpx;
+  font-size: 0;
+}
+.wxParse-div{
+  width: 702rpx!important;
+}
+.goods-details-piece4 .one navigator {
+  display: block;
+  width: 50%;
+  text-align: center;
+  color: #666;
+  float: left;
+}
+
+.goods-details-piece4 .one navigator image {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: auto;
+}
+
+.goods-details-piece4 .one navigator text {
+  font-size: 22rpx;
+  color: #666;
+  display: block;
+  text-align: center;
+  margin-top: 18rpx;
+}
+
+.goods-details-piece4 .two {
+  font-size: 0;
+  text-align: right;
+}
+.goods-details-piece4 .two button::after{
+  border-radius: 0;
+}
+.goods-details-piece4 .two text, .goods-details-piece4 .two button {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28rpx;
+  color: #e65c76;
+  width: 230rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  background: #f5e1e2;
+  border-radius: 0;
+  /* border-radius: 5rpx; */
+}
+.goods-details-piece4 .two button:last-child {
+  background: #e65c76;
+  /* margin-left: 16rpx; */
+  color: #fff;
+}
+
+page {
+  padding-bottom: 114rpx;
+}
+.goods-details-piece4 .one navigator{
+  position: relative;
+}
+.goods-details-piece4 .one navigator .shop_num{
+  font-size: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  background: #d70029;
+  right: 10rpx;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}

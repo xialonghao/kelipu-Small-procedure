@@ -1,0 +1,58 @@
+<!--pages/fenlei/fenlei.wxml-->
+
+<view class='shopserch' bindtap=''>
+  <input placeholder='输入商品关键词' placeholder-class='sercolor' value="{{key_word}}" bindconfirm='search' bindtap='global_view'></input>
+</view>
+
+<!-- 以下代码为字符截取 -->
+<wxs module="util">
+  var sub = function(val) {
+    if (val.length > 6) {
+      return val.substring(0, 6) + '...';
+    } else {
+      return val;
+    }
+  }
+  module.exports.sub = sub;
+</wxs>
+
+<view class="list_shop" bindtap=''>
+  <!-- <scroll-view scroll-y="true" class="list_shopleft">
+    <view class="{{ncurrentTab==index?'active':''}}" wx:for='{{classify_1}}' wx:key="key" data-current="{{index}}" bindtap="nclickTab">{{item.cate_name}}</view>
+  </scroll-view> -->
+<scroll-view scroll-y="true" class="list_shopleft" scroll-top="{{viewtop}}" scroll-with-animation="true">
+  <view class="{{ncurrentTab==index?'active boxhei':'boxhei'}}" wx:for='{{classify_1}}' wx:key="key" data-current="{{index}}" bindtap="{{clicktime?'nclickTab':''}}" >{{item.cate_name}}</view>
+</scroll-view>
+  <view class="list_shop">
+    <swiper vertical="true" current="{{ncurrentTab}}" duration="300" bindchange="nswiperTab" class='index_wmess'>
+        <swiper-item class="list_shopright" wx:for = '{{classify_2}}' wx:key="index">
+
+          <!-- 有广告位图片时才展示 -->
+          <block wx:if="{{item.jump_thumb != ''}}">
+            <view class="list_shopimg">
+              <image mode='aspectFit' src="https://giftcardapp.colipu.com/upload/picture/{{item.jump_thumb}}" bindtap='clickimage' id='{{item.jump_url}}'></image>
+            </view>
+          </block>
+
+          <view class="shop_leitit">{{item.name}}</view>
+          <view class="list_shopcont">
+            <!-- <view class="list_shopcont"> -->
+            <navigator url='../shoplist/shoplist?classify2_id={{item.id}}&keyword=&code=' data-current="{{item.cate_name}}" hover-class='none' bindtap="clicktit" class="list_shopbox" wx:for='{{item.goods_category_list}}' wx:key="index" data-cur="{{ncurrentTab}}">
+              <!-- 上面一行加入keyword和code参数是避免在js文件里options中报keyword和code未定义的错 -->
+              
+              <block wx:if="{{item.path}}">  <!-- 如果后台上传了分类图片就显示图片 -->
+                <image src="https://giftcardapp.colipu.com/upload/picture/{{item.path}}"></image>
+              </block> 
+               <block wx:else>  <!-- 否则就显示默认图片 -->
+                <image src="../public/images/fenlei_photo.png"></image>
+              </block>
+
+              <text>{{item.cate_name}}</text>
+            </navigator>
+            <!-- </view> -->
+          </view>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>
+

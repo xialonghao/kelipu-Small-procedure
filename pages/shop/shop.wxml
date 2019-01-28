@@ -1,0 +1,144 @@
+<!--pages/shop/shop.wxml-->
+<!-- 引入wxs脚本 --><!-- 通过自定义的module名称tools引用sub截取方法 -->
+<!-- <wxs src="../wxs/subutil.wxs" module="tools" /> -->
+
+<!--购物车为空-->
+<view class='empty-piece1'  hidden='{{hidden}}' bindtap="">
+  <view class='content'>
+    <text>您的购物车里还没有商品</text>
+    <view class='Visitthe' bindtap='Visitthe'><text>去逛逛</text></view>
+  </view>
+</view>
+<view class='empty-piece2'hidden="{{yinchang}}" >
+  <text class='title'>为您推荐</text>
+
+  <!-- 登录后显示的商品列表(显示具体积分) -->
+  <!-- <block wx:if="{{cardid}}"> -->
+    <view class="index_shopbox"  bindtap="">
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}"  class="shop_wbox" bindtap='global_view'>
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+
+          <block wx:if="{{show_price == 0}}">
+            <view class="shop_num">{{item.goods_price}}  
+              <text>积分/{{item.goods_unit}}</text>
+            </view>
+          </block>
+
+          <block wx:if="{{show_price == 1}}">
+            <view class="shop_num">1  
+              <text>{{item.goods_unit}}</text>
+            </view>
+          </block>
+
+          <block wx:if="{{show_price == 2}}">
+            <view class="shop_num">{{item.goods_price}}  
+              <text>积分/{{item.goods_unit}}</text>
+            </view>
+          </block>
+          
+        </navigator>
+      </block>
+    </view>
+  <!-- </block> -->
+
+  <!-- 登录前显示的商品列表(不显示具体积分) -->
+  <!-- <block wx:else="{{cardid}}">
+    <view class="index_shopbox" >
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox">
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+          <view class="shop_num">***  
+            <text>积分/{{item.goods_unit}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </block> -->
+  
+  <!-- 加载完20条商品后才显示这个 -->
+  <block wx:if="{{showMore}}">
+    <view hover-class='none' class="nomore">没有更多了~</view>
+  </block>
+  
+</view>
+<view class='pad_page' hidden="{{whats}}"  bindtap="">
+  <view wx:for='{{list}}' wx:for-item="good" wx:key="index" >
+  <checkbox-group bindchange="checkboxChange" id="{{good.id}}">
+    <view class='shop_boxbg' hidden="{{ss}}">
+      <view class="shop_box"  bindtap=''>
+        <view class='good_checkbox'>
+          <label class="checkbox">
+            <checkbox value="{{good.goods_num_price}}-{{good.goodsid}}-{{good.id}}" id="{{good.id}}" checked="{{good.checked}}" hidden='hidden'/>
+            <icon type="circle" size="20" wx:if="{{!good.checked}}"  color='#252525' bindtap=''></icon>
+            <icon type="success" size="20" wx:if="{{good.checked}}"  color='#d7012a' bindtap=''></icon>
+          </label>
+        </view>
+        <view class="shop_box_left" >  
+          <image  mode="aspectFit"  src="{{good.goods_img}}"></image>
+          <block   wx:if="{{spxj.status==0}}" wx:for='{{spsxj}}' wx:for-item="spxj">
+             <view class='hide'   wx:if="{{good.goodsid==spxj.id && spxj.status == 0}}"> 宝贝补货中 </view>
+          </block>
+           <block   wx:if="{{sp.status == 1}}" wx:for='{{sp}}' wx:for-item="sp">
+             <view class='hide'  wx:if="{{good.goodsid==sp.id && sp.goods_repertory < good.goods_num }}">宝贝补货中 </view>
+          </block>
+         <!-- <block wx:if="{{item.status==-1}}"  wx:for='{{inexistence}}' wx:for-item="item">
+             <view class='hide'  wx:if="{{good.goodsid==item.id && item.status==-1}}">商品不存在 </view>
+        </block> -->
+        </view>
+        <view class="shop_box_right">
+          <text class="shop_titi">{{good.goods_name}}</text>  
+          <view wx:if="{{setmeal==1}}" class="shop_price">{{unit['goods_unit']}}
+          </view>
+          <view wx:if="{{setmeal==0}}" class="shop_price">{{good.goods_price}}
+            <text>积分</text>
+          </view>
+          <!-- <view wx:if="{{setmeal==1}}" class="shop_nums">
+            <view class="shop_reduce {{minusStatuses[index]}}" data-index="{{index}}"  data-id="{{good.id}}" bindtap="bindMinus"></view>
+            <view class="shop_num_text">{{good.goods_num}}</view>
+            <view class="shop_add"  data-index="{{index}}"  data-id="{{good.id}}" bindtap="bindPlus"></view>
+          </view> -->
+            <view  class="shop_nums">
+            <view class="shop_reduce {{minusStatuses[index]}}" data-index="{{index}}"  data-id="{{good.id}}" bindtap="bindMinus"></view>
+            <view class="shop_num_text">{{good.goods_num}}</view>
+            <view class="shop_add"  data-index="{{index}}"  data-id="{{good.id}}" bindtap="bindPlus"></view>
+          </view>
+          <view class="shop_delete" type="submit" bindtap="del" data-id="{{good.id}}" ></view>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+
+
+  </view>
+  <view class="shop_set" bindtap="">
+    <checkbox-group bindchange="selectalltap" >
+      <label class='checkbox-allcheck'>
+        <checkbox value="{{!checkAll}}" checked="{{checkAll}}" hidden='hidden' />
+        <icon type="circle" size="20" wx:if="{{!checkAll}}" color='#252525'></icon>
+        <icon type="success" size="20" wx:if="{{checkAll}}" color='#d7012a'></icon>
+        <text class='check-all-text' bindtap=''>全选</text>
+      </label>
+    </checkbox-group>
+    <!-- url='../jiesuan/jiesuan' -->
+    <button bindtap='global_views'typr='submit'class="shop_set_btn">提交订单{{intefral}}</button>
+    <view wx:if="{{setmeal==1 && checkAll }}" class="shop_set_price">合计：
+      <text>1{{unit['goods_unit']}}</text>
+    </view>
+    <view wx:if="{{setmeal==1 && !checkAll }}" class="shop_set_price">合计：
+      <text>0积分</text>
+    </view>
+    <view wx:if="{{setmeal==0 }}" class="shop_set_price">合计：
+      <text>{{shopadding}}积分</text>
+    </view>
+  </view>
+</view>
+
+
+

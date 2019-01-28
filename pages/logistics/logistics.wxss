@@ -1,0 +1,199 @@
+/* pages/logistics/logistics.wxss */
+@import "../public/gobal.wxss";
+
+.logistics-title {
+  border-top: 15rpx solid #f4f4f4;
+  border-bottom: 15rpx solid #f4f4f4;
+  display: flex;
+  padding: 42rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.logistics-title .left, .logistics-title .right {
+  height: 120rpx;
+}
+
+.logistics-title .left {
+  width: 150rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 0;
+  position: relative;
+}
+
+.logistics-title .left image {
+  max-width: 100%;
+  max-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logistics-title .left .float-text {
+  width: 100%;
+  display: block;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.logistics-title .right {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-left: 36rpx;
+}
+
+.logistics-title .right view {
+  font-size: 0;
+  width: 100%;
+  height: 26rpx;
+}
+
+.logistics-title .right view text {
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #252525;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logistics-title .right view text:first-child {
+  width: 130rpx;
+}
+
+.logistics {
+  padding-bottom: 158rpx;
+}
+
+.logistics-content-title {
+  width: 690rpx;
+  margin: auto;
+  display: block;
+  font-size: 26rpx;
+  color: #252525;
+  height: 89rpx;
+  line-height: 89rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.logistics-content {
+  border-bottom: 1rpx solid #eee;
+  width: 677rpx;
+  margin-top: 14rpx;
+  padding-left: 43rpx;
+}
+
+.logistics-content .logistics-content-class .class-address {
+  border-left: 1rpx solid #eee;
+  padding: 31rpx 0rpx 0 42rpx;
+  position: relative;
+  font-size: 0;
+  box-sizing: border-box;
+}
+
+.logistics-content .logistics-content-class .class-address text {
+  font-size: 28rpx;
+  color: #333;
+  display: inline-block;
+  margin-left: 28rpx;
+  line-height: 42rpx;
+  text-align: justify;
+}
+
+.logistics-content .logistics-content-class .class-address view + text {
+  margin-left: 0;
+}
+
+.logistics-content .logistics-content-class .time {
+  border-left: 1rpx solid #eee;
+  padding: 22rpx 0 38rpx 42rpx;
+  font-size: 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.logistics-content .logistics-content-class .time text {
+  font-size: 24rpx;
+  color: #999;
+  display: inline-block;
+  margin-left: 12rpx;
+}
+
+.logistics-content .logistics-content-class .class-address view {
+  position: absolute;
+  left: -13.5rpx;
+  top: 38.5rpx;
+  width: 27rpx;
+  height: 27rpx;
+  border-radius: 50%;
+  background: #eee;
+  z-index: 9;
+  margin-left: 0;
+  box-sizing: border-box;
+}
+
+.logistics-content view:first-child .logistics-content-class .class-address view {
+  margin-left: 0;
+  left: -11.5rpx;
+}
+
+.logistics-content .logistics-content-class .time text:first-child {
+  margin-left: 0;
+}
+
+.logistics-content view:last-child .logistics-content-class .time {
+  border-bottom: 0;
+}
+
+.logistics-content view:first-child .logistics-content-class .class-address {
+  border-left: 0;
+}
+
+.logistics-content view:first-child .logistics-content-class .class-address view {
+  background: #ce0200;
+}
+
+.logistics-content view:first-child .logistics-content-class .class-address::after {
+  content: '';
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 1rpx;
+  height: 20rpx;
+  background: #eee;
+}
+
+
+
+
+/* 暂无物流信息提示样式 */
+.noshop_list{
+  position: absolute;
+  width: 400rpx;
+  height: 400rpx;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  font-size: 0;
+}
+.noshop_list image{
+  width: 104rpx;
+  height: 106rpx;
+}
+.noshop_list text{
+  font-size: 26rpx;
+  color: #252525;
+  display: block;
+  text-align: center;
+  margin-top: 30rpx;
+}
+/* 暂无物流信息提示样式 */

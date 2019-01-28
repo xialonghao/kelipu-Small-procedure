@@ -1,0 +1,228 @@
+/* pages/add_adres/add_adres.wxss */
+@import "../public/gobal.wxss";
+
+page {
+  background: #f4f4f4;
+}
+
+.adres_form {
+  background: #fff;
+  margin-top: 15rpx;
+  display: block;
+}
+
+.adres_click_input {
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-left: 30rpx;
+  /* padding-left: 53rpx; *//* background: url(http://giftcardapp.colipu.com/static/module/admin/img/adres_btn.png) no-repeat center left;
+  background-size: 39rpx 39rpx; */
+  font-size: 0;
+}
+
+.adres_click_input radio {
+  display: inline-block;
+  transform: scale(0.8);
+  vertical-align: middle;
+}
+
+.adres_click_input text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 26rpx;
+  color: #252525;
+  height: 26rpx;
+  line-height: 26rpx;
+}
+
+.adres_input {
+  height: 96rpx;
+  margin: 0 30rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background: #fff;
+}
+
+.adres_input .adres_input_tit {
+  height: 96rpx;
+  display: block;
+  line-height: 96rpx;
+  font-size: 26rpx;
+  width: 165rpx;
+}
+
+.adres_input input {
+  width: 585rpx;
+  border: none;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.putcolor {
+  color: #999;
+}
+
+.add_adres {
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  width: 690rpx;
+  height: 86rpx;
+  border: 1rpx solid #d2d2d2;
+  box-sizing: border-box;
+  margin: auto;
+  line-height: 84rpx;
+  font-size: 26rpx;
+  color: #d70029;
+  text-align: center;
+  border-radius: 7rpx;
+  background: #fff;
+}
+
+.add_adres-save {
+  bottom: 142rpx;
+}
+
+/*----------------------------------  */
+
+.infoText {
+  font-size: 0;
+  line-height: 96rpx;
+  height: 96rpx;
+  white-space: nowrap;
+  width: 585rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.infoText .region-infoText {
+  text-align: left;
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.phcolor {
+  color: #666;
+}
+
+picker-view {
+  background-color: white;
+  padding: 0;
+  width: 100%;
+  height: 370rpx;
+  bottom: 0;
+  position: fixed;
+}
+
+picker-view-column view {
+  vertical-align: middle;
+  font-size: 26rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+.animation-element-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.animation-element {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 470rpx;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.order_price_de navigator {
+  width: 146rpx;
+  height: 50rpx;
+  border: 1rpx solid #eaeaea;
+  border-radius: 50rpx;
+  display: block;
+  line-height: 50rpx;
+  font-size: 22rpx;
+  color: #666;
+  text-align: center;
+}
+
+.animation-button {
+  margin-top: 20rpx;
+  top: 20rpx;
+  width: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  align-items: center;
+}
+
+.animation-element text {
+  position: fixed;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  float: left;
+}
+
+.animation-element .left-bt {
+  left: 30rpx;
+  text-align: left;
+  width: 50%;
+  border-bottom: 1rpx solid #f2f2f2;
+  padding: 30rpx 0;
+}
+
+.animation-element .right-bt {
+  right: 30rpx;
+  text-align: right;
+  color: #cb0404;
+  width: 50%;
+  border-bottom: 1rpx solid #f2f2f2;
+  padding: 30rpx 0;
+}
+.adres_click_input checkbox{
+  width: 39rpx;
+  height: 39rpx;
+  display: none;
+  opacity: 0;
+} 
+.adres_click_input label{
+  display: block;
+}
+.adres_click_input label .check_input{
+  width: 39rpx;
+  height: 39rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+.adres_click_input .is_checked .check_input{  
+  background: #d70029 url(http://giftcardapp.colipu.com/static/module/admin/img/check.png) no-repeat center;
+  background-size: 20rpx 20rpx;
+  border-color: #d70029;
+} 

@@ -1,0 +1,13 @@
+/* pages/public/gobal.wxss */
+input,
+textarea {
+	outline: none;
+	resize: none;
+}
+view,text{
+  line-height: 1em;
+  word-break:break-all;
+}
+button::after{
+  border: none;
+}

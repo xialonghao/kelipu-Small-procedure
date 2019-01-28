@@ -1,0 +1,143 @@
+/* pages/fenlei/fenlei.wxss */
+@import "../public/gobal.wxss";
+page{
+  height: 100%;
+}
+.shopserch{
+  margin: 0 30rpx;
+  margin-bottom: 20rpx; 
+  background: #f4f4f4 url(http://giftcardapp.colipu.com/static/module/admin/img/search_img.png) no-repeat 20rpx center;
+  background-size: 31rpx 31rpx; 
+  border-radius: 5rpx; 
+}
+.shopserch input{
+  font-size:  24rpx; 
+  padding: 15rpx 68rpx;
+  height: 64rpx;
+  box-sizing: border-box;
+  color: #666; 
+}
+.list_shop{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	min-height: calc(100% - 84rpx);
+  height: calc(100% - 84rpx);
+  border-top: 1rpx solid #f4f4f4;
+}
+.list_shop .list_shop{
+  height: 100%;
+}
+.list_shopleft{
+	background: #f8f8f8;
+	width: 195rpx;
+	padding-top: 23rpx;
+	min-height: 100%;
+  overflow: auto;
+  height: 100%;
+	/* box-sizing: border-box; */
+  float: left;
+  box-sizing: border-box;
+}
+.list_shop .list_shop{
+  border-top: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.list_shopleft view{
+  font-size: 26rpx;
+  color: #252525;
+  line-height: 90rpx;
+  height: 90rpx;
+  padding: 0 10rpx;
+  display: block;
+  text-align: center;
+  background: #f8f8f8;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.list_shopleft .active{
+	background: #fff;
+	color: #d70029;
+  /* text-align: left;
+  word-break:break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; */
+}
+.index_wmess{
+  width: 555rpx;
+	box-sizing: border-box;
+	height: 100%!important;
+}
+.list_shopright{
+	width: 555rpx;
+	padding-top: 32rpx;
+	box-sizing: border-box;
+	min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+.list_shopright swiper-item{
+  width: 555rpx;
+}
+.list_shopright .list_shopimg{
+	font-size: 0;
+	border-radius: 5rpx;
+	overflow: hidden;
+	margin: 0 25rpx;
+  height: 208rpx;
+}
+.list_shopright .list_shopimg image{
+  height: 208rpx;
+  width: 506rpx;
+}
+.shop_leitit{
+	font-size: 26rpx;
+	color: #252525;
+	padding: 0 25rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.list_shopcont{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 0 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.list_shopcont .list_shopbox{
+	width: 33.33%;
+	display: block;
+	text-align: center;
+}
+.list_shopcont .list_shopbox image{
+  width: 90rpx;
+  height: 90rpx;
+}
+.list_shopcont .list_shopbox text{
+	font-size: 22rpx;
+	color: #252525;
+  line-height: 36rpx;
+	display: block;
+	margin-top: 8rpx;
+	margin-bottom: 33rpx;
+  word-break:break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}

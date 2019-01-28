@@ -1,0 +1,168 @@
+<!--pages/shoplist/shoplist.wxml-->
+<!-- 引入wxs脚本 --><!-- 通过自定义的module名称tools引用sub截取方法 -->
+<!-- <wxs src="../wxs/subutil.wxs" module="tools" /> -->
+
+
+<!-- 从首页搜索关键字进来时保留搜索内容 -->
+<block wx:if="{{key_word!=''}}">
+  <view class='shopserch' bindtap=''>
+    <input placeholder='输入商品关键词' placeholder-class='sercolor' value="{{key_word}}" bindinput="wxSearchInput" bindconfirm='search' bindtap='global_view'></input>
+  </view>
+</block>
+
+<block wx:else>
+  <view class='shopserch'>
+    <input placeholder='输入商品关键词' placeholder-class='sercolor' value="{{wxSearchData}}" bindinput="wxSearchInput" bindconfirm='search' bindtap='global_view'></input>
+  </view>
+</block>
+
+<!-- 登录后可让用户点击"综合""销量""价格" -->
+<block wx:if="{{show_price !== 1}}">
+  <view class='shoplist'bindtap=''>
+    <view class='{{num==1?"active":""}}' data-num='1' catchtap='zonghe'>综合</view>
+    <view class='{{num==2?"active":""}}' data-num='2' catchtap='changeOil'>销量</view>
+    <view class='price {{num==3?"active":""}}' data-num='3' data-index="{{daindex2}}" bindtap="choosesort2">价格<image src="{{imageurl2}}"></image>
+  </view>  
+    <!-- <view class='price'>价格</view>
+    <view bindtap="digao">低->高</view>
+    <view bindtap="gaodi">高->低</view> -->
+  </view>
+</block>
+
+<!-- 浏览套餐项目(不显示积分)时不让用户点击"综合""销量""价格" -->
+<block wx:if="{{show_price === 1}}">
+  <view class='shoplist'>
+    <view class='{{num==1?"active":""}}' data-num='1' catchtap='zonghe'>综合</view>
+    <view class='{{num==2?"active":""}}' data-num='2' catchtap='changeOil'>销量</view>
+    <view class='price {{num==3?"active":""}}' data-num='3' data-index="{{daindex2}}">价格<image src="{{imageurl2}}"></image>
+  </view>  
+    
+  </view>
+</block>
+
+<!-- 搜索时或某二级分类下有数据时 -->
+<block wx:if="{{items!=''}}">   
+  <!-- 登录后显示的商品列表(显示具体积分) -->
+  <!-- <block wx:if="{{cardid}}">  -->
+    <view class="index_shopbox" bindtap=''>
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}' bindtap='global_view'>
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+
+          <block wx:if="{{show_price === 0}}">  <!-- 非套餐卡显示 -->
+            <view class="shop_num">{{item.goods_price}}
+              <text>积分/{{item.goods_unit}}</text>  
+            </view>
+          </block>
+
+          <block wx:if="{{show_price === 1}}">  <!-- 套餐卡显示 -->
+            <view class="shop_num">1
+              <text>{{item.goods_unit}}</text>  
+            </view>
+          </block>
+
+          <block wx:if="{{show_price === 2}}">  <!-- 中型显示 -->
+            <view class="shop_num">{{item.goods_price}}
+              <text>积分/{{item.goods_unit}}</text>  
+            </view>
+          </block>
+
+          <block wx:if="{{show_price === ''}}">  <!-- 登录前显示 -->
+            <view class="shop_num">{{item.goods_price}}
+              <text>积分/{{item.goods_unit}}</text>  
+            </view>
+          </block>
+
+        </navigator>  
+      </block>  
+    </view>
+    <!-- 加载完商品后才显示这个 -->
+    <block wx:if="{{showMore}}">
+      <view hover-class='none' class="nomore">已经到底啦~</view>
+    </block>       
+  <!-- </block> -->
+
+  <!-- 登录前显示的商品列表(显示具体积分) -->
+  <!-- <block wx:else="{{cardid}}">
+    <view class="index_shopbox">
+      <block wx:for="{{items}}" wx:key="id">
+        <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}'>
+          <view class="shop_image">
+            <image mode="aspectFit" src="{{item.goods_img}}"></image>
+          </view>
+          <text class="shop_btit">{{item.goods_name}}</text>
+          <view class="shop_num">***
+            <text>积分/{{item.goods_unit}}</text> 
+          </view>
+        </navigator>    
+      </block>
+    </view>
+  </block> -->
+
+</block>
+
+
+
+
+<!-- 暂无商品 -->
+<block wx:elif="{{classify2_id != ''}}">
+  <view class='no_shoplist'>
+    <view class='fl'><image src="http://www.zhxb.com/wechat/kelipu/pay_img1.jpg"></image></view>
+    <view class='fr'>暂无商品哦</view>
+  </view>
+</block>
+<!-- 暂无商品 -->
+
+
+
+<!-- 暂无搜索结果(暂无某二级分类下无商品的提示信息,因为此情况几乎不存在,如需要后续再加) -->
+<block wx:else> 
+  <view class='noshop_list'>
+    <image src="http://www.zhxb.com/wechat/kelipu/noshop_img2.jpg"></image>
+    <text>没有找到搜索结果～</text>
+  </view>
+</block>
+   
+
+
+
+
+
+<!-- 登录后显示的商品列表(显示具体积分) -->
+<!-- <block wx:if="{{cardid}}"> 
+  <view class="index_shopbox">
+    <block wx:for="{{items}}" wx:key="id">
+      <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}'>
+        <view class="shop_image">
+          <image mode="aspectFit" src="{{item.goods_img}}"></image>
+        </view>
+        <text class="shop_btit">{{item.goods_name}}</text>
+        <view class="shop_num">{{item.goods_price}}
+          <text>积分/个</text>  
+        </view>
+      </navigator>  
+    </block>  
+  </view>       
+</block> -->
+
+<!-- 登录前显示的商品列表(显示具体积分) -->
+<!-- <block wx:else="{{cardid}}">
+  <view class="index_shopbox">
+    <block wx:for="{{items}}" wx:key="id">
+      <navigator hover-class='none' url="../shopdetails/shopdetails?goods_id={{item.id}}" class="shop_wbox" id='{{index}}'>
+        <view class="shop_image">
+          <image mode="aspectFit" src="{{item.goods_img}}"></image>
+        </view>
+        <text class="shop_btit">{{item.goods_name}}</text>
+        <view class="shop_num">***
+          <text>积分/个</text> 
+        </view>
+      </navigator>  
+    </block>
+  </view>
+</block> -->
+
+<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
